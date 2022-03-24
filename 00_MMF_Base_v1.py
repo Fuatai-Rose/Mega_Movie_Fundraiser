@@ -17,43 +17,70 @@ def not_blank(question):
         else:
             print("Sorry - this can't be blank")
 
+
+def int_check(question, low_num, high_num):
+
+    error = "please enter a whole number between {} and {}".format(low_num, high_num)
+
+    valid = False
+    while not valid:
+
+        # Ask user for number and check if valid
+        try:
+            response = int(input(question))
+
+            if low_num <= response <= high_num:
+                return response
+            else:
+                print(error)
+
+        # If an integer is not entered, display error
+        except ValueError:
+            print(error)
+
     # * * * * * * * * Main Routine * * * * * * * *
 
-# Set up dictionaries / lists needed to hold data
+    # Set up dictionaries / lists needed to hold data
 
-# ask user if they have used the program before and show instructions if necessary
+    # ask user if they have used the program before and show instructions if necessary
 
-# Loop to get ticket details
+    # Loop to get ticket details
 
-    name = " "
-    count = 0
-    MAX_TICKETS = 5
 
-    while name != "xxx" and count < MAX_TICKETS:
+name = " "
+count = 0
+MAX_TICKETS = 5
 
-        # Tells user how many seats are left
-        if count < 4:
-            print("You have {} seats left".format(MAX_TICKETS - count))
+while name != "xxx" and count < MAX_TICKETS:
 
-        # Warn user that the seats are almost sold out
-        else:
-            print("There is ONE seat left!")
+    # Tells user how many seats are left
+    if count < 4:
+        print("You have {} seats left".format(MAX_TICKETS - count))
 
-        # get details
-
-        # Get name (Can't be blank)
-        name = not_blank("Name: ")
-        count += 1
-        print()
-
-    if count == MAX_TICKETS:
-        print("You have sold all the available tickets!")
+    # Warn user that the seats are almost sold out
     else:
-        print("You have sold {} tickets. There are {} places still available".format(count, MAX_TICKETS - count))
+        print("There is ONE seat left!")
+
+    # Get details
 
     # Get name (Can't be blank)
     name = not_blank("Name: ")
-    # End of tickets loop
+
+    # End the loop if the exit code is entered
+    if name == "xxx":
+        break
+
+    count += 1
+
+    # Get age between 12 and 130
+    age = int_check("Age: ", 12, 130)
+
+if count == MAX_TICKETS:
+    print("You have sold all the available tickets!")
+else:
+    print("You have sold {} tickets. There are {} places still available".format(count, MAX_TICKETS - count))
+
+# End of tickets loop
 
     # Calculate ticket price
 
