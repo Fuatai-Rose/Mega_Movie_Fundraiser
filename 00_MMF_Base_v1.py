@@ -19,7 +19,6 @@ def not_blank(question):
 
 
 def int_check(question):
-
     error = "please enter a number that is more 0"
 
     valid = False
@@ -38,6 +37,7 @@ def int_check(question):
         except ValueError:
             print(error)
 
+
 # * * * * * * * * Main Routine * * * * * * * *
 
 # Set up dictionaries / lists needed to hold data
@@ -45,21 +45,22 @@ def int_check(question):
 # ask user if they have used the program before and show instructions if necessary
 
 # Loop to get ticket details
-
-
-name = " "
-count = 0
 MAX_TICKETS = 5
 
-while name != "xxx" and count < MAX_TICKETS:
+name = " "
+ticket_count = 0
+ticket_sales = 5
 
-    # Tells user how many seats are left
-    if count < 4:
-        print("You have {} seats left".format(MAX_TICKETS - count))
+
+while name != "xxx" and ticket_count < MAX_TICKETS:
 
     # Warn user that the seats are almost sold out
-    else:
+    if ticket_count >= MAX_TICKETS - 1:
         print("There is ONE seat left!")
+
+    # Tells user how many seats are left
+    else:
+        print("You have {} seats left".format(MAX_TICKETS - ticket_count))
 
     # Get details
 
@@ -80,23 +81,37 @@ while name != "xxx" and count < MAX_TICKETS:
     elif age > 130:
         print("That is very old - it looks like a mistake")
         continue
+    if age < 16:
+        ticket_price = 7.5
+    elif age < 65:
+        ticket_price = 10.5
+    else:
+        ticket_price = 6.5
 
-    count += 1
+    ticket_count += 1
+    ticket_sales += ticket_price
 
-if count == MAX_TICKETS:
+# End of tickets loop
+# Calculate ticket profit
+ticket_profit = ticket_sales - (5 * ticket_count)
+print("Ticket profit: ${:.2f}".format(ticket_profit))
+
+# Tell user if they have unsold tickets
+if ticket_count == MAX_TICKETS:
     print("You have sold all the available tickets!")
 else:
-    print("You have sold {} tickets. There are {} places still available".format(count, MAX_TICKETS - count))
+    print("You have sold {} tickets. There are {} places still available".format(ticket_count,
+                                                                                 MAX_TICKETS - ticket_count))
 
 # End of tickets loop
 
-    # Calculate ticket price
+# Calculate ticket price
 
-    # Loop to ask for snacks
+# Loop to ask for snacks
 
-    # Calculate snack price
+# Calculate snack price
 
-    # Ask for payment method (and apply surcharge if necessary)
+# Ask for payment method (and apply surcharge if necessary)
 
 # Calculate Total sales and profit
 
