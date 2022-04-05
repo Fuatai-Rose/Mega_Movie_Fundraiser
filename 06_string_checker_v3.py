@@ -9,7 +9,7 @@ def string_check(choice, options):
         if choice in var_list:
 
             # Get full name of snack and put ot
-            # in title case so it looks nice when outputted
+            # in title case so, it looks nice when outputted
             chosen = var_list[0].title()
             is_valid = "yes"
             break
@@ -27,7 +27,7 @@ def string_check(choice, options):
 # Valid snacks holds list of all snacks
 # Each item in valid snacks is a list with
 # Valid options for each snack <full name, letter code (a - e)
-# and possible abbreviations etc >
+# and possible abbreviations etc. >
 
 
 valid_snacks = [
