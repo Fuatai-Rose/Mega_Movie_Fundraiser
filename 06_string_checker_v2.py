@@ -1,7 +1,8 @@
 # Valid snacks holds list of all snacks
 # Each item in valid snacks is a list with
 # Valid options for each snack <full name, letter code (a - e)
-# and possible abbreviations etc. >
+# and possible abbreviations etc.>
+
 valid_snacks = [
     ["popcorn", "p", "corn", "a"],
     ["M&M's", "m&m's", "mms", "m", "b"], # First item is M&M

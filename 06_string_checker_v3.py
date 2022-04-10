@@ -3,6 +3,9 @@
 # Function goes here
 def string_check(choice, options):
 
+    chosen = " "
+    is_valid = " "
+
     for var_list in options:
 
         # if the snack is in one of the lists, return full name
